@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapicalls/ListApiWithoutModel/list_screen_withoutmodel.dart';
+import 'package:flutterapicalls/MultiDataAPIWithModel/screen_with_multimodel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ListPostWithoutModel(),
+      home: const MultiDataWidget(),
     );
   }
 }
