@@ -34,29 +34,29 @@ class _ScreenMultiWidgetState extends State<ScreenMultiWidget> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text("List With Modal"),
+        title: const Text("List With Modal"),
       ),
       body: isReady == true
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
               itemCount: postmodel.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: ListTile(
                     leading: Text(
                       postmodel[index].id.toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     title: Text(
                       postmodel[index].title.toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     subtitle: Text(
                       postmodel[index].body.toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                 );

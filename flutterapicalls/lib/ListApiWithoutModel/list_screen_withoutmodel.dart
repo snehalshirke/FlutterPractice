@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapicalls/api_services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-class listPostWithoutModel extends StatefulWidget {
-  const listPostWithoutModel({super.key});
+class ListPostWithoutModel extends StatefulWidget {
+  const ListPostWithoutModel({super.key});
 
   @override
-  State<listPostWithoutModel> createState() => _listPostWithoutModelState();
+  State<ListPostWithoutModel> createState() => _ListPostWithoutModelState();
 }
 
-class _listPostWithoutModelState extends State<listPostWithoutModel> {
+class _ListPostWithoutModelState extends State<ListPostWithoutModel> {
   bool isReady = false;
   dynamic postList = [];
   _getPost() {
@@ -19,7 +20,19 @@ class _listPostWithoutModelState extends State<listPostWithoutModel> {
         isReady = false;
       });
     }).onError((error, stackTrace) {
-      print(error);
+      Fluttertoast.showToast(
+        msg: error.toString(),
+        toastLength: Toast
+            .LENGTH_SHORT, // Duration for which the toast should be visible
+        gravity:
+            ToastGravity.BOTTOM, // Position of the toast message on the screen
+        timeInSecForIosWeb:
+            1, // Time for which the message will be displayed on the screen
+        backgroundColor:
+            Colors.blue.shade100, // Background color of the toast message
+        textColor: Colors.black, // Text color of the toast message
+        fontSize: 16.0, // Font size of the toast message text
+      );
     });
   }
 
@@ -35,29 +48,29 @@ class _listPostWithoutModelState extends State<listPostWithoutModel> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text("List With Modal"),
+        title: const Text("List With Modal"),
       ),
       body: isReady == true
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
               itemCount: postList.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: ListTile(
                     leading: Text(
                       postList[index]['id'].toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     title: Text(
                       postList[index]['title'].toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     subtitle: Text(
                       postList[index]['body'].toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                 );
