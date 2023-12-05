@@ -1,10 +1,13 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:retrofitapicall/api_service.dart';
+import 'package:retrofitapicall/album_model.dart';
 
 void main() => runApp(const MyApp());
 
-Future<Album> fetchAlbum() async {
+Future<List<Map<String, dynamic>>> fetchAlbum() async {
   final client = ApiClient(
     Dio(
       BaseOptions(contentType: "application/json"),
@@ -13,9 +16,12 @@ Future<Album> fetchAlbum() async {
 
   try {
     final response = await client.getAlbum();
-    return response;
+    print(response.body.toString());
+    List<Map<String, dynamic>> _map =
+        List<Map<String, dynamic>>.from(jsonDecode(response.body.toString()));
+    return _map;
   } catch (e) {
-    throw Exception("Failed to load Api");
+    throw Exception("Failed to load Api $e");
   }
 }
 
@@ -43,30 +49,39 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              fetchAlbum().then((value) {
-                print(value.id);
-                print(value.title);
-                print(value.userId);
-              });
-            },
-            child: const Text('API Request'),
-          ),
-        ),
+        body: _login_body(),
       ),
     );
   }
-}
 
-class Album {
-  final int userId;
-  final int id;
-  final String title;
-  const Album({required this.id, required this.userId, required this.title});
+  FutureBuilder _login_body() {
+    final apiService =
+        ApiClient(Dio(BaseOptions(contentType: "application/json")));
+    final jsonData = {"name": "morpheus", "job": "leader"};
+    return FutureBuilder(
+        future: apiService.getAlbum(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              Album model = snapshot.data!;
 
-  factory Album.fromJson(Map<String, dynamic> json) {
-    return Album(id: json['id'], userId: json['userId'], title: json['title']);
+              return _posts(model.id.toString());
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          } else if (snapshot.hasError) {
+            // Handle errors
+            print("Error: ${snapshot.error}");
+            return _posts("Error: ${snapshot.error}");
+          } else {
+            return _posts("No Data Found!");
+          }
+        });
+  }
+
+  Widget _posts(String posts) {
+    return Text(posts);
   }
 }

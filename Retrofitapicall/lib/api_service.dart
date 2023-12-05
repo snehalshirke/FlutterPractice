@@ -1,11 +1,11 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:retrofitapicall/album_model.dart';
 import 'package:retrofitapicall/main.dart';
 part 'api_service.g.dart';
 
 class Apis {
-  //static const String album = '/albums/1';
-  static const String album = '/posts';
+  static const String album = '/albums/1';
 }
 
 @RestApi(baseUrl: "https://jsonplaceholder.typecode.com")
