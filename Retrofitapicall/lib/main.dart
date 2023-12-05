@@ -7,6 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:retrofitapicall/api_service.dart';
 import 'package:retrofitapicall/album_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,7 +20,19 @@ Future<List<Map<String, dynamic>>> fetchAlbum() async {
 
   try {
     final response = await client.getAlbum();
-    //print(response.body.toString());
+    Fluttertoast.showToast(
+      msg: response.body.toString(),
+      toastLength:
+          Toast.LENGTH_SHORT, // Duration for which the toast should be visible
+      gravity:
+          ToastGravity.BOTTOM, // Position of the toast message on the screen
+      timeInSecForIosWeb:
+          1, // Time for which the message will be displayed on the screen
+      backgroundColor:
+          Colors.blue.shade100, // Background color of the toast message
+      textColor: Colors.black, // Text color of the toast message
+      fontSize: 16.0, // Font size of the toast message text
+    );
     List<Map<String, dynamic>> _map =
         List<Map<String, dynamic>>.from(jsonDecode(response.body.toString()));
     return _map;
@@ -78,6 +91,19 @@ class _MyAppState extends State<MyApp> {
           } else if (snapshot.hasError) {
             // Handle errors
             //print("Error: ${snapshot.error}");
+            Fluttertoast.showToast(
+              msg: "Error: ${snapshot.error}",
+              toastLength: Toast
+                  .LENGTH_SHORT, // Duration for which the toast should be visible
+              gravity: ToastGravity
+                  .BOTTOM, // Position of the toast message on the screen
+              timeInSecForIosWeb:
+                  1, // Time for which the message will be displayed on the screen
+              backgroundColor:
+                  Colors.blue.shade100, // Background color of the toast message
+              textColor: Colors.black, // Text color of the toast message
+              fontSize: 16.0, // Font size of the toast message text
+            );
             return _posts("Error: ${snapshot.error}");
           } else {
             return _posts("No Data Found!");
