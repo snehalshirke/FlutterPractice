@@ -1,5 +1,8 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'dart:convert';
 
+// ignore: depend_on_referenced_packages
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:retrofitapicall/api_service.dart';
@@ -16,7 +19,7 @@ Future<List<Map<String, dynamic>>> fetchAlbum() async {
 
   try {
     final response = await client.getAlbum();
-    print(response.body.toString());
+    //print(response.body.toString());
     List<Map<String, dynamic>> _map =
         List<Map<String, dynamic>>.from(jsonDecode(response.body.toString()));
     return _map;
@@ -54,10 +57,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   FutureBuilder _login_body() {
     final apiService =
         ApiClient(Dio(BaseOptions(contentType: "application/json")));
-    final jsonData = {"name": "morpheus", "job": "leader"};
+    //final jsonData = {"name": "morpheus", "job": "leader"};
     return FutureBuilder(
         future: apiService.getAlbum(),
         builder: (context, snapshot) {
@@ -73,7 +77,7 @@ class _MyAppState extends State<MyApp> {
             }
           } else if (snapshot.hasError) {
             // Handle errors
-            print("Error: ${snapshot.error}");
+            //print("Error: ${snapshot.error}");
             return _posts("Error: ${snapshot.error}");
           } else {
             return _posts("No Data Found!");

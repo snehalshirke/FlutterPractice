@@ -1,7 +1,7 @@
 import 'package:retrofit/retrofit.dart';
+// ignore: depend_on_referenced_packages
 import 'package:dio/dio.dart';
 import 'package:retrofitapicall/album_model.dart';
-import 'package:retrofitapicall/main.dart';
 part 'api_service.g.dart';
 
 class Apis {
