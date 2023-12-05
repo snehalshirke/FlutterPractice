@@ -1,7 +1,7 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofitapicall/album_model.dart';
-//part 'api_service.g.dart';
+part 'api_service.g.dart';
 
 class Apis {
   static const String album = '/albums/1';
