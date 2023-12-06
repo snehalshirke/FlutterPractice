@@ -19,6 +19,9 @@ class _MySliderState extends State<MySlider> {
           style: TextStyle(fontSize: 16),
         ),
       ),
+      body: Container(
+        child: const Center(child: Text('BODY')),
+      ),
     );
   }
 }
