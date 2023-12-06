@@ -20,6 +20,9 @@ class _MyNotification extends State<MyNotification> {
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.normal),
         ),
       ),
+      body: const Center(
+        child: Text("Push Notification"),
+      ),
     );
   }
 }
