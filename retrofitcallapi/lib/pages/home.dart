@@ -57,8 +57,8 @@ class _HomeState extends State<Home> {
         itemCount: posts.length,
         itemBuilder: (context, index) {
           return Container(
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(16),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -67,14 +67,14 @@ class _HomeState extends State<Home> {
             child: Column(children: [
               Text(
                 posts[index].title,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 posts[index].title,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ]),
           );
