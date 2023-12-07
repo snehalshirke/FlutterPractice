@@ -45,7 +45,10 @@ class _MyAppState extends State<MyApp> {
           onPressed: details.onStepContinue,
           child: const Text('Next'),
         ),
-        ElevatedButton(onPressed: details.onStepCancel, child: Text('Back'))
+        ElevatedButton(
+          onPressed: details.onStepCancel,
+          child: const Text('Cancel'),
+        ),
       ],
     );
   }
