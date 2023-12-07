@@ -15,6 +15,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int currentStep = 0;
+  continueStep() {
+    if (currentStep < 2) {
+      setState(() {
+        currentStep = currentStep + 1;
+      });
+    }
+  }
+
+  cancelStep() {
+    if (currentStep > 0) {
+      setState(() {
+        currentStep = currentStep - 1;
+      });
+    }
+  }
+
+  onStepTapped(int value) {
+    setState(() {
+      currentStep = value;
+    });
+  }
+
+  Widget controlsBuilder(context, details) {
+    return Row(
+      children: [
+        ElevatedButton(
+          onPressed: details.onStepContinue,
+          child: const Text('Next'),
+        ),
+        ElevatedButton(onPressed: details.onStepCancel, child: Text('Back'))
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +62,11 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       body: Stepper(
+        currentStep: currentStep,
+        onStepContinue: continueStep,
+        onStepCancel: cancelStep,
+        onStepTapped: onStepTapped,
+        controlsBuilder: controlsBuilder,
         steps: const [
           Step(
             title: Text('Step 1'),
