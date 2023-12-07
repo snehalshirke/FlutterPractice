@@ -21,7 +21,10 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: Colors.amber.shade100,
-        title: const Text('Stepper Widget'),
+        title: const Text(
+          'Stepper Widget',
+          style: TextStyle(fontSize: 14, color: Colors.black),
+        ),
       ),
       body: Stepper(
         steps: const [
