@@ -18,7 +18,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
     final pickedFile =
         await _picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
     if (pickedFile != null) {
-      image = File(pickedFile.path);
+      //image = File(pickedFile.path);
       setState(() {});
     } else {
       print("No image selected");
@@ -38,20 +38,19 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-              child: image == null
-                  ? const Center(
-                      child: Text('Pick Image'),
-                    )
-                  : Container(
-                      child: Center(
-                        child: Image.file(
-                          File(image!.path).absolute,
-                          height: 100,
-                          width: 100,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ))
+            child: image == null
+                ? const Center(
+                    child: Text('Pick Image'),
+                  )
+                : Container(
+                    // child: Image.file(
+                    //     //File(image!.path).absolute,
+                    //     //height: 100,
+                    //     //width: 100,
+                    //     //fit: BoxFit.cover,
+                    //   ),
+                    ),
+          ),
         ],
       ),
     );
