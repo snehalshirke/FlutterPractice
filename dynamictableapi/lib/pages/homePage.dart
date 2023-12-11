@@ -1,4 +1,6 @@
+import 'package:dynamictableapi/provider/myHomePgeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,7 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.amber.shade100,
         title: const Text('Json Parsing Demo'),
       ),
-      body: ,
+      body: ChangeNotifierProvider<MyHomePageProvider>(
+        create: (context) => MyHomePageProvider(),
+        child: Consumer<MyHomePageProvider>(
+            builder: (context, provider, child) {}),
+      ),
     );
   }
 }
