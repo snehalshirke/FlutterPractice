@@ -36,7 +36,7 @@ class _SliderScreenState extends State<SliderScreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    print(currentIndex);
+                    //print(currentIndex);
                   },
                   child: CarouselSlider(
                     items: imageList
@@ -68,8 +68,8 @@ class _SliderScreenState extends State<SliderScreen> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: imageList.asMap().entries.map((entry) {
-                        print(entry);
-                        print(entry.key);
+                        //print(entry);
+                        //print(entry.key);
                         return GestureDetector(
                           onTap: () =>
                               carouselController.animateToPage(entry.key),
