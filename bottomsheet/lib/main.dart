@@ -24,20 +24,21 @@ class _MyAppState extends State<MyApp> {
         child: ElevatedButton(
           onPressed: () {
             showModalBottomSheet(
-                context: context,
-                builder: (BuildContext context) {
-                  return SizedBox(
-                    height: 200,
-                    child: Center(
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Close'),
-                      ),
+              context: context,
+              builder: (BuildContext context) {
+                return SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
                     ),
-                  );
-                });
+                  ),
+                );
+              },
+            );
           },
           child: const Text('Show Bottomsheet'),
         ),
