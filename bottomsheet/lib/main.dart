@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: Colors.amber.shade100,
         ),
-        body: const ModalBottomSheetDemo2(),
+        body: const ModalBottomSheetDemo(),
       ),
     );
   }
