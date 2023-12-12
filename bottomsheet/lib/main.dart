@@ -37,10 +37,10 @@ class ModalBottomSheetDemo extends StatelessWidget {
       child: ElevatedButton(
         child: const Text('Show Modal BottomSheet'),
         onPressed: () {
-          // when raised button is pressed
+// when raised button is pressed
           // we display showModalBottomSheet
           showModalBottomSheet<void>(
-            // context and builder are
+// context and builder are
             // required properties in this widget
             context: context,
             builder: (BuildContext context) {
