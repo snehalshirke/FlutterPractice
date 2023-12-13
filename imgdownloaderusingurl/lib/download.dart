@@ -2,9 +2,10 @@ import 'package:imgdownloaderusingurl/single_download.dart';
 import 'package:flutter/material.dart';
 
 class Download extends StatefulWidget {
-  Download({Key? key}) : super(key: key);
+  const Download({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DownloadState createState() => _DownloadState();
 }
 
@@ -45,7 +46,7 @@ class _DownloadState extends State<Download> with TickerProviderStateMixin {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => SingleDownloadScreen()));
+                      builder: (context) => const SingleDownloadScreen()));
             },
             child: const Text('Download Demo')),
       ),

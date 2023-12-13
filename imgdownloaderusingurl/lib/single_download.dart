@@ -3,8 +3,8 @@ import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 
 class SingleDownloadScreen extends StatefulWidget {
   const SingleDownloadScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<SingleDownloadScreen> createState() => _SingleDownloadScreenState();
@@ -50,7 +50,7 @@ class _SingleDownloadScreenState extends State<SingleDownloadScreen> {
                             });
                           },
                           onDownloadCompleted: (value) {
-                            print('path  $value ');
+                            // print('path  $value ');
                             setState(() {
                               _progress = null;
                             });
