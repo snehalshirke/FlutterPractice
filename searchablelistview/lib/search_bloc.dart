@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:searchablelistview/search_event.dart';
 import 'package:searchablelistview/search_state.dart';
-import 'package:searchablelistview/search_bloc.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc() : super(LoadedWords(words: words)) {
