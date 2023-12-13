@@ -23,9 +23,10 @@ class _SingleDownloadScreenState extends State<SingleDownloadScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Download Any File From URL\nin Flutter',
+              'Download any file from URL\nin flutter',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
+                //Text('https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG93bmxvYWR8ZW58MHx8MHx8fDA%3D')
               ),
               textAlign: TextAlign.center,
             ),
