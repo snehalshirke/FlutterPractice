@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 
 class SingleDownloadScreen extends StatefulWidget {
   const SingleDownloadScreen({
@@ -39,7 +40,22 @@ class _SingleDownloadScreenState extends State<SingleDownloadScreen> {
             _progress != null
                 ? const CircularProgressIndicator()
                 : ElevatedButton(
-                    onPressed: () {}, child: const Text('Download')),
+                    onPressed: () {
+                      FileDownloader.downloadFile(
+                          url: url.text.trim(),
+                          onProgress: (name, progress) {
+                            setState(() {
+                              _progress = progress;
+                            });
+                          },
+                          onDownloadCompleted: (value) {
+                            print('path  $value ');
+                            setState(() {
+                              _progress = null;
+                            });
+                          });
+                    },
+                    child: const Text('Download')),
           ],
         ),
       ),
