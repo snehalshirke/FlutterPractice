@@ -27,6 +27,7 @@ class Utils {
         icon: const Icon(Icons.error, size: 28, color: Colors.white),
         message: message,
         title: 'Flush Messages',
+        borderRadius: BorderRadius.circular(8),
         messageColor: Colors.black,
         backgroundColor: Colors.amber.shade600,
         duration: const Duration(seconds: 2),
