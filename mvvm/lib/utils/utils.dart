@@ -15,13 +15,22 @@ class Utils {
 
   static void flushbarErrorMessage(String message, BuildContext context) {
     showFlushbar(
-        context: context,
-        flushbar: Flushbar(
-          message: message,
-          title: 'Flush Messages',
-          messageColor: Colors.black,
-          backgroundColor: Colors.amber.shade600,
-          duration: const Duration(seconds: 2),
-        )..show(context));
+      context: context,
+      flushbar: Flushbar(
+        forwardAnimationCurve: Curves.bounceInOut,
+        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        padding: const EdgeInsets.all(10),
+        titleColor: Colors.white,
+        reverseAnimationCurve: Curves.easeInOut,
+        flushbarPosition: FlushbarPosition.TOP,
+        positionOffset: 20,
+        icon: const Icon(Icons.error, size: 28, color: Colors.white),
+        message: message,
+        title: 'Flush Messages',
+        messageColor: Colors.black,
+        backgroundColor: Colors.amber.shade600,
+        duration: const Duration(seconds: 2),
+      )..show(context),
+    );
   }
 }
