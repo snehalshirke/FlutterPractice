@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:convert';
 import 'dart:io';
 
@@ -44,8 +45,7 @@ class NetworkApiService extends BaseApiServices {
         throw UnauthorizedException(response.body.toString());
       case 500:
       default:
-        throw FetchDataException(
-            'Timeout Error Occured' + response.statusCode.toString());
+        throw FetchDataException('Timeout Error Occured${response.statusCode}');
     }
   }
 }
