@@ -22,7 +22,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Utils.toastMessage('Toast functionality added');
 
           //==========Flushbar message added using utils ==========
-          Utils.flushbarErrorMessage('No internet connection', context);
+          Utils.flushbarErrorMessage('FlushBar functionality added', context);
+
+          //==========SnackBar message added using utils ==========
+          Utils.snakBar('SnackBar functionality added', context);
         },
         child: const Text('Click'),
       ),
