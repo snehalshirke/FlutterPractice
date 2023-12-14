@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm/utils/routes/routes_name.dart';
 import 'package:mvvm/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
