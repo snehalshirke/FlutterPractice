@@ -17,7 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
         onTap: () {
           //==========Navigate to another screen using routes==========
           //Navigator.pushNamed(context, RoutesName.home);
-          Utils.toastMessage('Toast Message Functionality');
+
+          //==========Toast message added using utils ==========
+          Utils.toastMessage('Toast functionality added');
         },
         child: const Text('Click'),
       ),
