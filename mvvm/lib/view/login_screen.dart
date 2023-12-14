@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm/utils/routes/routes_name.dart';
+import 'package:mvvm/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,9 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Center(
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, RoutesName.home);
-          // Navigator.push(context,
-          //MaterialPageRoute(builder: (context) => const HomeScreen()));
+          //==========Navigate to another screen using routes==========
+          //Navigator.pushNamed(context, RoutesName.home);
+          Utils.toastMessage('Toast Message Functionality');
         },
         child: const Text('Click'),
       ),
