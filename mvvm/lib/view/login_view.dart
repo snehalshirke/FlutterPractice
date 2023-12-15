@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mvvm/res/components/round_button.dart';
 import 'package:mvvm/utils/utils.dart';
 
 class LoginView extends StatefulWidget {
@@ -73,7 +74,20 @@ class _LoginViewState extends State<LoginView> {
               },
             ),
             SizedBox(
-              height: height * .1,
+              height: height * .085,
+            ),
+            RoundButton(
+              title: 'Login',
+              onPress: () {
+                if (_emailcontroller.text.isEmpty) {
+                  Utils.flushbarErrorMessage('Please enter email', context);
+                } else if (_passwordcontroller.text.isEmpty) {
+                  Utils.flushbarErrorMessage('Please enter password', context);
+                } else if (_passwordcontroller.text.length < 6) {
+                  Utils.flushbarErrorMessage(
+                      'Please enter valid password', context);
+                } else {}
+              },
             ),
           ],
         ),
