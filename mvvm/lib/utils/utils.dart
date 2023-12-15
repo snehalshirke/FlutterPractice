@@ -43,4 +43,10 @@ class Utils {
       ),
     );
   }
+
+  static void fieldFocusChange(
+      BuildContext context, FocusNode currentfocus, FocusNode nextfocus) {
+    currentfocus.unfocus();
+    FocusScope.of(context).requestFocus(nextfocus);
+  }
 }
