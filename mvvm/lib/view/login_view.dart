@@ -17,6 +17,7 @@ class _LoginViewState extends State<LoginView> {
   FocusNode passwordFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height + 1;
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -64,11 +65,16 @@ class _LoginViewState extends State<LoginView> {
                         onTap: () {
                           _obsecurePassword.value = !_obsecurePassword.value;
                         },
-                        child: const Icon(Icons.visibility_off_outlined)),
+                        child: Icon(_obsecurePassword.value
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility)),
                   ),
                 );
               },
-            )
+            ),
+            SizedBox(
+              height: height * .1,
+            ),
           ],
         ),
       ),
