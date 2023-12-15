@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm/utils/utils.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class UtilExample extends StatefulWidget {
+  const UtilExample({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<UtilExample> createState() => _UtilExampleState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _UtilExampleState extends State<UtilExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
