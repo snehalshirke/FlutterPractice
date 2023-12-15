@@ -77,12 +77,13 @@ class _LoginViewState extends State<LoginView> {
                     labelText: 'Password',
                     prefixIcon: const Icon(Icons.lock_open_rounded),
                     suffixIcon: InkWell(
-                        onTap: () {
-                          _obsecurePassword.value = !_obsecurePassword.value;
-                        },
-                        child: Icon(_obsecurePassword.value
-                            ? Icons.visibility_off_outlined
-                            : Icons.visibility)),
+                      onTap: () {
+                        _obsecurePassword.value = !_obsecurePassword.value;
+                      },
+                      child: Icon(_obsecurePassword.value
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility),
+                    ),
                   ),
                 );
               },
