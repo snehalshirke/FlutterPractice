@@ -16,6 +16,17 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController _passwordcontroller = TextEditingController();
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailcontroller.dispose();
+    _passwordcontroller.dispose();
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+    _obsecurePassword.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height + 1;
@@ -86,7 +97,9 @@ class _LoginViewState extends State<LoginView> {
                 } else if (_passwordcontroller.text.length < 6) {
                   Utils.flushbarErrorMessage(
                       'Please enter valid password', context);
-                } else {}
+                } else {
+                  print('api hit');
+                }
               },
             ),
           ],
