@@ -104,9 +104,14 @@ class _LoginViewState extends State<LoginView> {
                   Utils.flushbarErrorMessage(
                       'Please enter valid password', context);
                 } else {
+                  // Map data = {
+                  //   'email': _emailcontroller.text.toString(),
+                  //   'password': _passwordcontroller.text.toString(),
+                  // };
+
                   Map data = {
-                    'email': _emailcontroller.text.toString(),
-                    'password': _passwordcontroller.text.toString(),
+                    'email': 'eve.holt@reqres.in',
+                    'password': 'cityslicka',
                   };
                   authViewMode.loginApi(data, context);
                 }
