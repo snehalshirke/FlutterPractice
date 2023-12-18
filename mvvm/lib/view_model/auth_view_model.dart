@@ -15,14 +15,16 @@ class AuthViewModel with ChangeNotifier {
   final _myRepo = AuthRepository();
   Future<void> loginApi(dynamic data, BuildContext context) async {
     setLoading(true);
-    _myRepo.loginApi(data).then((value) {
-      setLoading(false);
-      Navigator.pushNamed(context, RoutesName.home);
-      if (kDebugMode) {
-        Utils.flushbarErrorMessage(value.toString(), context);
-        print(value.toString());
-      }
-    }).onError(
+    _myRepo.loginApi(data).then(
+      (value) {
+        setLoading(false);
+        Navigator.pushNamed(context, RoutesName.home);
+        if (kDebugMode) {
+          Utils.flushbarErrorMessage(value.toString(), context);
+          print(value.toString());
+        }
+      },
+    ).onError(
       (error, stackTrace) {
         setLoading(false);
         if (kDebugMode) {
