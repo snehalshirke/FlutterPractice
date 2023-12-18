@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mvvm/res/components/round_button.dart';
 import 'package:mvvm/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:mvvm/view_model/auth_view_model.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
   final ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
