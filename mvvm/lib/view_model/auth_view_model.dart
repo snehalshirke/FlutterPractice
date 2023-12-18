@@ -46,7 +46,7 @@ class AuthViewModel with ChangeNotifier {
   }
 
   Future<void> signUpApi(dynamic data, BuildContext context) async {
-    setLoading(true);
+    setSignUpLoading(true);
     _myRepo.signUpApi(data).then(
       (value) {
         setSignUpLoading(false);
