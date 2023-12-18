@@ -7,8 +7,17 @@ import 'package:mvvm/utils/utils.dart';
 class AuthViewModel with ChangeNotifier {
   bool _loading = false;
   bool get loading => _loading;
+
+  bool _signUpLoading = false;
+  bool get signUpLoading => _signUpLoading;
+
   setLoading(bool value) {
     _loading = value;
+    notifyListeners();
+  }
+
+  setSignUpLoading(bool value) {
+    _signUpLoading = value;
     notifyListeners();
   }
 
@@ -28,6 +37,30 @@ class AuthViewModel with ChangeNotifier {
     ).onError(
       (error, stackTrace) {
         setLoading(false);
+        if (kDebugMode) {
+          Utils.flushbarErrorMessage(error.toString(), context);
+          print(error.toString());
+        }
+      },
+    );
+  }
+
+  Future<void> signUpApi(dynamic data, BuildContext context) async {
+    setLoading(true);
+    _myRepo.signUpApi(data).then(
+      (value) {
+        setSignUpLoading(false);
+        Navigator.pushNamed(context, RoutesName.home);
+        if (kDebugMode) {
+          //Utils.flushbarErrorMessage(value.toString(), context);
+          Utils.flushbarErrorMessage("SignUp Successful", context);
+          Navigator.pushNamed(context, RoutesName.home);
+          print(value.toString());
+        }
+      },
+    ).onError(
+      (error, stackTrace) {
+        setSignUpLoading(false);
         if (kDebugMode) {
           Utils.flushbarErrorMessage(error.toString(), context);
           print(error.toString());
