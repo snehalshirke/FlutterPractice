@@ -28,13 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text('Logout'),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           )
         ],
       ),
       // backgroundColor: Colors.black,
-      body: Column(
+      body: const Column(
         children: [],
       ),
     );
