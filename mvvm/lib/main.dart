@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.splash,
+        initialRoute: RoutesName.sample,
         onGenerateRoute: Routes.generateRoute,
       ),
     );
