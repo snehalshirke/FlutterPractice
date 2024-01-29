@@ -36,28 +36,24 @@ class _ScreenWithModelState extends State<ScreenWithModel> {
         centerTitle: true,
         title: const Text('Single Post Model Class'),
       ),
-      body: isReady == true
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  singlePostWithModel.userId.toString(),
-                  style: const TextStyle(fontSize: 20, color: Colors.blue),
-                ),
-                Text(
-                  singlePostWithModel.title.toString(),
-                  style: const TextStyle(fontSize: 18, color: Colors.red),
-                ),
-                Text(
-                  singlePostWithModel.body.toString(),
-                  style: const TextStyle(fontSize: 15, color: Colors.black),
-                ),
-              ],
-            ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            singlePostWithModel.userId.toString(),
+            style: const TextStyle(fontSize: 20, color: Colors.blue),
+          ),
+          Text(
+            singlePostWithModel.title.toString(),
+            style: const TextStyle(fontSize: 18, color: Colors.red),
+          ),
+          Text(
+            singlePostWithModel.body.toString(),
+            style: const TextStyle(fontSize: 15, color: Colors.black),
+          ),
+        ],
+      ),
     );
   }
 }
